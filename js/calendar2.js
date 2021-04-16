@@ -321,19 +321,33 @@
   
   !function() {
     const Http = new XMLHttpRequest();
-    var url='http://c6e11acf2640.ngrok.io/chatfuel/web_diary?month=april&device_id=AAA405';  //&device_id=' + deviceName.slice(7);
+    const colourcode = {
+      '기뻤어': 'orange',
+      '우울했어': 'blue',
+      '화났어': 'green',
+      '답답했어': 'black',
+      '짜증났어': 'green',
+      '그저 그랬어': 'white',
+      '신났어': 'yellow',
+      '설렜어': 'purple',
+      '뿌듯했어': 'blue',
+      '피곤했어': 'blue',
+      '걱정스러웠어': 'blue'
+    };
+    var url='http://fef27e07210b.ngrok.io/chatfuel/web_diary?month=april&device_id=AAA405';  //&device_id=' + deviceName.slice(7);
     Http.open("GET", url);
     Http.send();
     
     Http.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var message = JSON.parse(this.responseText);
-        var obj = message.data[0];
+        var obj = message.data;
         var data = []
-        /*for(i = 0; i < obj.length; i++){
-          data.push({eventname: obj[i].diary_content, calendar: obj[i].diary_mood, color: 'orange', date: moment(obj[i].date_generated)});
-        }*/
-        data = [{eventName: obj.diary_content, calendar: obj.diary_mood, color: 'orange', date: moment(obj.date_generated) }];
+        for(i = 0; i < obj.length; i++){
+          var mood = obj[i].diary_mood;
+          data.push({eventName: obj[i].diary_content, calendar: mood, color: colourcode[mood], date: moment(obj[i].date_generated)});
+        }
+        //data = [{eventName: obj.diary_content, calendar: obj.diary_mood, color: 'orange', date: moment(obj.date_generated) }];
         var calendar = new Calendar('#calendar', data);
       }
     };   
