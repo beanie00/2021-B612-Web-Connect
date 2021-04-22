@@ -16,7 +16,7 @@ https://templatemo.com/tm-560-astro-motion
     margin: 0 auto;
   } */
 
-html, body, .page-container {
+  html, body, .page-container {
     height: 100%;
 }
 
