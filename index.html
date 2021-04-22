@@ -106,6 +106,10 @@ https://templatemo.com/tm-560-astro-motion
                       link sensor
                     </p>
                   </div>        
+                <!-- <div class="circle intro-circle-1"></div>
+                <div class="circle intro-circle-2"></div>
+                <div class="circle intro-circle-3"></div>
+                <div class="circle intro-circle-4"></div> -->
               </div>
                       
             </div>            
@@ -303,6 +307,7 @@ https://templatemo.com/tm-560-astro-motion
   <script src="js/slick.js"></script>
   <script src="js/templatemo-script.js"></script>
   <script src="js/calendar2.js"></script>
+  <!-- <script src="js/fullcalendar.js"></script> -->
 
   <script>
     var deviceName = 'PLITOR_AAA404'
@@ -313,7 +318,7 @@ https://templatemo.com/tm-560-astro-motion
     var pre_value = -1
     var sound_play = false
     var base_sound = new Audio('sound/base1.mp3');
-    var nature_sound = new Audio('sound/forest1.wav');
+    var nature_sound = new Audio('sound/forest1.mp3');
     var pre_click = "forest1_img"
     base_sound.volume = 0.5
 
@@ -386,7 +391,7 @@ https://templatemo.com/tm-560-astro-motion
       pre_click = "rain1_img"
       document.getElementById(pre_click).style.border="3px solid #7b3f91"
     })
-    
+  
     function isWebBluetoothEnabled() {
       if (!navigator.bluetooth) {
         console.log('Web Bluetooth API is not available in this browser!')
@@ -463,18 +468,20 @@ https://templatemo.com/tm-560-astro-motion
         console.log(Http.responseText)
       }
       if (value == 1) {
+          nature_sound.animate({volume: 0.0}, 5000);
           nature_sound.pause()
           document.getElementById("plant_talk").innerHTML = "나 목이 타들어갈 거 같아...물마시고 싶어<br>"; 
         } else if (value == 2){
           document.getElementById("plant_talk").innerHTML = "<br>반가워:) 오랜만이야<br>"; 
           base_sound.play()
         } else if (value == 3){
-          document.getElementById("plant_talk").innerHTML = "<br>히히 간지럽다>_< <br><br> 근데 나 목말라..물 좀 줄래?<br>"; 
+          document.getElementById("plant_talk").innerHTML = "<br>히히 간지럽다>_< <br><br> 근데 나 목말라..물 좀 줄래?<br>";
           nature_sound.play()
+          nature_sound.animate({volume: 1.0}, 5000);
         } 
       pre_value = value
     }
-  
+    
     function start() {
       gattCharacteristic[0].startNotifications()
       .then(_ => {
