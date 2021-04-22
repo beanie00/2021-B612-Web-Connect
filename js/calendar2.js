@@ -54,9 +54,9 @@
     Calendar.prototype.drawMonth = function() {
       var self = this;
       
-      this.events.forEach(function(ev) {
+      /*this.events.forEach(function(ev) {
        ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
-      });
+      });*/
       
       
       if(this.month) {
@@ -320,34 +320,36 @@
   }();
   
   !function() {
-    var data = [
-      { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
-      { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
-      { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
-      { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
-  
-      { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' },
-      { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
-      { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
-      { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
-  
-      { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
-      { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
-      { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
-      { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
-  
-      { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green' },
-      { eventName: 'Bowling Team', calendar: 'Other', color: 'green' },
-      { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
-      { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
-    ];
-  
+    const Http = new XMLHttpRequest();
+    const colourcode = {
+      '기뻤어': 'orange',
+      '우울했어': 'blue',
+      '화났어': 'green',
+      '답답했어': 'black',
+      '짜증났어': 'green',
+      '그저 그랬어': 'white',
+      '신났어': 'yellow',
+      '설렜어': 'purple',
+      '뿌듯했어': 'blue',
+      '피곤했어': 'blue',
+      '걱정스러웠어': 'blue'
+    };
+    var url='http://fef27e07210b.ngrok.io/chatfuel/web_diary?month=april&device_id=AAA405';  //&device_id=' + deviceName.slice(7);
+    Http.open("GET", url);
+    Http.send();
     
-  
-    function addDate(ev) {
-      
-    }
-  
-    var calendar = new Calendar('#calendar', data);
+    Http.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var message = JSON.parse(this.responseText);
+        var obj = message.data;
+        var data = []
+        for(i = 0; i < obj.length; i++){
+          var mood = obj[i].diary_mood;
+          data.push({eventName: obj[i].diary_content, calendar: mood, color: colourcode[mood], date: moment(obj[i].date_generated)});
+        }
+        //data = [{eventName: obj.diary_content, calendar: obj.diary_mood, color: 'orange', date: moment(obj.date_generated) }];
+        var calendar = new Calendar('#calendar', data);
+      }
+    };   
   
   }();
