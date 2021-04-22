@@ -213,6 +213,8 @@ https://templatemo.com/tm-560-astro-motion
     var base_sound = new Audio('sound/base1.mp3');
     var nature_sound = new Audio('sound/forest1.mp3');
     var pre_click = "forest1_img"
+    var hello_time = Date('December 17, 1995 03:24:00')
+    var tickel_time = Date('December 17, 1995 03:24:00')
     base_sound.volume = 0.5
 
     document.getElementById(pre_click).style.border="5px solid #7b3f91"
@@ -359,13 +361,7 @@ https://templatemo.com/tm-560-astro-motion
       var now = new Date()
       console.log('> ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + ' Value is ' + value)
       const Http = new XMLHttpRequest();
-      var url='https://api.dearplants.co.kr/chat/chatfuel/default_answer?state=' + String(value) + '&device_id=' + deviceName.slice(7);
-      Http.open("GET", url);
-      Http.send();
-  
-      Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-      }
+      
       if (value == 1) {
           nature_sound.animate({volume: 0.0}, 5000);
           nature_sound.pause()
@@ -373,13 +369,32 @@ https://templatemo.com/tm-560-astro-motion
         } else if (value == 2){
           //document.getElementById("plant_talk").innerHTML = "<br>반가워:) 오랜만이야<br>"; 
           base_sound.play()
+          if (now - hello_time >= 300000){
+            var url='https://api.dearplants.co.kr/chat/chatfuel/default_answer?state=2' + '&device_id=' + deviceName.slice(7);
+            Http.open("GET", url);
+            Http.send();
+  
+            Http.onreadystatechange = (e) => {
+                console.log(Http.responseText)
+            }
+          }
+          let hello_time = now
         } else if (value == 3){
           //document.getElementById("plant_talk").innerHTML = "<br>히히 간지럽다>_< <br><br> 근데 나 목말라..물 좀 줄래?<br>";
           nature_sound.play()
           nature_sound.animate({volume: 1.0}, 5000);
+          if (now - tickle_time >= 300000){
+            var url='https://api.dearplants.co.kr/chat/chatfuel/default_answer?state=3'+ '&device_id=' + deviceName.slice(7);
+            Http.open("GET", url);
+            Http.send();
+  
+            Http.onreadystatechange = (e) => {
+                console.log(Http.responseText)
+            }
+          }
+          let tickle_time = now
         } 
-      pre_value = value
-    }
+
     
     function start() {
       gattCharacteristic[0].startNotifications()
