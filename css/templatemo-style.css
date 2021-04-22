@@ -56,6 +56,16 @@ h2 {
     font-size: 1.8rem;
 }
 
+h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+h5 {
+    font-size: 1rem;
+    margin-bottom: 45px;
+}
+
 .highlight {
     color: #9140cc;
 }
@@ -303,7 +313,7 @@ h2 {
 }
 
 .sound-button {
-    margin-top: 100px;
+    margin-bottom: 45px;
 }
 
 .intro-circle-1 {
