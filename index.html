@@ -92,7 +92,7 @@ https://templatemo.com/tm-560-astro-motion
               </div> 
               <div class="mx-auto gallery-slider">
                 <figure class="effect-julia item" id="forest1">
-                    <img src="img/forest_small.png" loading="lazy" alt="Image" id="forest1_img">
+                    <img src="img/forest_small.webp" loading="lazy" alt="Image" id="forest1_img">
                     <figcaption>
                         <div>
                             <p>숲속으로 여행을 떠나보세요.</p>
@@ -101,7 +101,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="river1">
-                    <img src="img/river_small.png" loading="lazy" alt="Image" id="river1_img">
+                    <img src="img/river_small.webp" loading="lazy" alt="Image" id="river1_img">
                     <figcaption>
                         <div>
                             <p>강가로 여행을 떠나보세요.</p>
@@ -110,7 +110,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="cricket1">
-                    <img src="img/cricket_small.png" loading="lazy" alt="Image" id="cricket1_img">
+                    <img src="img/cricket_small.webp" loading="lazy" alt="Image" id="cricket1_img">
                     <figcaption>
                         <div>
                             <p>아늑한 시골로 여행을 떠나보세요.</p>
@@ -119,7 +119,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="ocean1">
-                    <img src="img/ocean_small.png" loading="lazy" alt="Image" id="ocean1_img">
+                    <img src="img/ocean_small.webp" loading="lazy" alt="Image" id="ocean1_img">
                     <figcaption>
                         <div>
                             <p>바다로 여행을 떠나보세요.</p>
@@ -128,7 +128,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="bird1">
-                    <img src="img/bird_small.png" loading="lazy" alt="Image" id="bird1_img">
+                    <img src="img/bird_small.webp" loading="lazy" alt="Image" id="bird1_img">
                     <figcaption>
                         <div>
                             <p>어여쁜 새가 바삐 움직이네요.</p>
@@ -137,7 +137,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="bathtub1">
-                    <img src="img/bathtub_small.png" loading="lazy" alt="Image" id="bathtub1_img">
+                    <img src="img/bathtub_small.webp" loading="lazy" alt="Image" id="bathtub1_img">
                     <figcaption>
                         <div>
                             <p>욕조에 누워 편안히 책 읽어보는 거 어때요?</p>
@@ -146,7 +146,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="rain1">
-                    <img src="img/rain_small.png" loading="lazy" alt="Image" id="rain1_img">
+                    <img src="img/rain_small.webp" loading="lazy" alt="Image" id="rain1_img">
                     <figcaption>
                         <div>
                             <p>지금 밖에 비가 오고 있어요.</p>
@@ -155,7 +155,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="oven1">
-                    <img src="img/oven_small.png" loading="lazy" alt="Image" id="oven1_img">
+                    <img src="img/oven_small.webp" loading="lazy" alt="Image" id="oven1_img">
                     <figcaption>
                         <div>
                             <p>어떤 요리가 완성되고 있을까요?</p>
@@ -164,7 +164,7 @@ https://templatemo.com/tm-560-astro-motion
                     </figcaption>
                 </figure>
                 <figure class="effect-julia item" id="campfire1">
-                    <img src="img/fire_small.png" loading="lazy" alt="Image" id="campfire1_img">
+                    <img src="img/fire_small.webp" loading="lazy" alt="Image" id="campfire1_img">
                     <figcaption>
                         <div>
                             <p>모닥불 소리를 들어보세요.</p>
@@ -203,7 +203,8 @@ https://templatemo.com/tm-560-astro-motion
   <script src="js/templatemo-script.js"></script>
   <!-- <script src="js/calendar2.js"></script> -->
   <script>
-    var deviceName = 'PLITOR_AAA404'
+    var deviceNamePrefix = 'PLITOR'
+    var deviceName = 'PLITOR'
     var bleService = '0000ffe0-0000-1000-8000-00805f9b34fb'
     var bleCharacteristic = '0000ffe1-0000-1000-8000-00805f9b34fb'
     var bluetoothDeviceDetected
@@ -213,8 +214,8 @@ https://templatemo.com/tm-560-astro-motion
     var base_sound = new Audio('sound/base1.mp3');
     var nature_sound = new Audio('sound/forest1.mp3');
     var pre_click = "forest1_img"
-    var hello_time = Date('December 17, 1995 03:24:00')
-    var tickel_time = Date('December 17, 1995 03:24:00')
+    var hello_time = new Date('December 17, 2020 03:24:00')
+    var tickle_time = new Date('December 17, 2020 03:24:00')
     base_sound.volume = 0.5
 
     document.getElementById(pre_click).style.border="5px solid #7b3f91"
@@ -237,63 +238,63 @@ https://templatemo.com/tm-560-astro-motion
       document.getElementById(pre_click).style.border="none"
       pre_click = "forest1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/forest.png"
+      document.getElementById('bg-video').src="video/forest.webp"
     })
     document.querySelector('#river1').addEventListener('click', function() {
       nature_sound = new Audio('sound/river1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "river1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/river.png"
+      document.getElementById('bg-video').src="video/river.webp"
     })
     document.querySelector('#cricket1').addEventListener('click', function() {
       nature_sound = new Audio('sound/cricket1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "cricket1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/cricket.png"
+      document.getElementById('bg-video').src="video/cricket.webp"
     })
     document.querySelector('#ocean1').addEventListener('click', function() {
       nature_sound = new Audio('sound/ocean1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "ocean1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/ocean.png"
+      document.getElementById('bg-video').src="video/ocean.webp"
     })
     document.querySelector('#campfire1').addEventListener('click', function() {
       nature_sound = new Audio('sound/campfire1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "campfire1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/campfire.png"
+      document.getElementById('bg-video').src="video/campfire.webp"
     })
     document.querySelector('#bird1').addEventListener('click', function() {
       nature_sound = new Audio('sound/bird1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "bird1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/bird.png"
+      document.getElementById('bg-video').src="video/bird.webp"
     })
     document.querySelector('#oven1').addEventListener('click', function() {
       nature_sound = new Audio('sound/oven1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "oven1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/oven.png"
+      document.getElementById('bg-video').src="video/oven.webp"
     })
     document.querySelector('#bathtub1').addEventListener('click', function() {
       nature_sound = new Audio('sound/bathtub1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "bathtub1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/bathtub.png"
+      document.getElementById('bg-video').src="video/bathtub.webp"
     })
     document.querySelector('#rain1').addEventListener('click', function() {
       nature_sound = new Audio('sound/rain1.mp3');
       document.getElementById(pre_click).style.border="none"
       pre_click = "rain1_img"
       document.getElementById(pre_click).style.border="5px solid #7b3f91"
-      document.getElementById('bg-video').src="video/rain.png"
+      document.getElementById('bg-video').src="video/rain.webp"
     })
   
     function isWebBluetoothEnabled() {
@@ -309,13 +310,14 @@ https://templatemo.com/tm-560-astro-motion
       let options = {
         optionalServices: [bleService],
         filters: [
-          { "name": deviceName }
+          { "namePrefix": deviceNamePrefix }
         ]
       }
   
       console.log('Requesting any Bluetooth Device...')
       return navigator.bluetooth.requestDevice(options).then(device => {
         bluetoothDeviceDetected = device
+        deviceName = device.name
       }).catch(error => {
         console.log('Argh! ' + error)
       })
@@ -350,6 +352,7 @@ https://templatemo.com/tm-560-astro-motion
       .then(characteristic => {
         gattCharacteristic = characteristic
         console.log(gattCharacteristic)
+        document.getElementById("read").innerHTML = "stop music"; 
         gattCharacteristic[0].addEventListener('characteristicvaluechanged',
             handleChangedValue)
         start()
@@ -368,7 +371,7 @@ https://templatemo.com/tm-560-astro-motion
           //document.getElementById("plant_talk").innerHTML = "나 목이 타들어갈 거 같아...물마시고 싶어<br>"; 
         } else if (value == 2){
           //document.getElementById("plant_talk").innerHTML = "<br>반가워:) 오랜만이야<br>"; 
-          base_sound.play()
+          //base_sound.play()
           if (now - hello_time >= 300000){
             var url='https://api.dearplants.co.kr/chat/chatfuel/default_answer?state=2' + '&device_id=' + deviceName.slice(7);
             Http.open("GET", url);
@@ -377,8 +380,9 @@ https://templatemo.com/tm-560-astro-motion
             Http.onreadystatechange = (e) => {
                 console.log(Http.responseText)
             }
+            hello_time = now
           }
-          let hello_time = now
+          
         } else if (value == 3){
           //document.getElementById("plant_talk").innerHTML = "<br>히히 간지럽다>_< <br><br> 근데 나 목말라..물 좀 줄래?<br>";
           nature_sound.play()
@@ -391,10 +395,10 @@ https://templatemo.com/tm-560-astro-motion
             Http.onreadystatechange = (e) => {
                 console.log(Http.responseText)
             }
+            tickle_time = now
           }
-          let tickle_time = now
         } 
-
+      }
     
     function start() {
       gattCharacteristic[0].startNotifications()
@@ -428,6 +432,5 @@ https://templatemo.com/tm-560-astro-motion
       fire_status = false
     }
   </script>
-
 </body>
 </html>
